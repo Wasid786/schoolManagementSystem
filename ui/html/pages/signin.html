@@ -43,10 +43,14 @@
                     responseEl.style.color = 'green';
                     responseEl.innerText = text;
 
-                    // Redirect to home.html after 1 second (optional delay)
                     setTimeout(() => {
-                        window.location.href = 'home.html';
-                    }, 1000);
+    if (data.role.trim().toLowerCase() === 'admin') {
+        window.location.href = 'admin.html';
+    } else {
+        window.location.href = 'student.html';
+    }
+}, 1000);
+
                 } else {
                     responseEl.style.color = 'red';
                     responseEl.innerText = text;
