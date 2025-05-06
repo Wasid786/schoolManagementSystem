@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 1 - Section 2 Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .section {
+      margin-top: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .actions a {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .actions a:hover {
+      background-color: #0056b3;
+    }
+
+    .present {
+      color: green;
+      font-weight: bold;
+    }
+
+    .absent {
+      color: red;
+      font-weight: bold;
+    }
+
+    button.toggle-btn {
+      padding: 6px 10px;
+      border: none;
+      background-color: #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button.toggle-btn:hover {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Class 1 - Section 2 Dashboard</h1>
+
+  <div class="actions">
+    <a href="#">View Timetable</a>
+    <a href="#">Check Assignments</a>
+    <a href="#">Gradebook</a>
+  </div>
+
+  <div class="section">
+    <h2>Student Attendance</h2>
+    <table id="attendanceTable">
+      <thead>
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Toggle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Aryan Sharma</td>
+          <td class="status present">Present</td>
+          <td><button class="toggle-btn" onclick="toggleAttendance(this)">Toggle</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Isha Mehta</td>
+          <td class="status absent">Absent</td>
+          <td><button class="toggle-btn" onclick="toggleAttendance(this)">Toggle</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Kunal Verma</td>
+          <td class="status present">Present</td>
+          <td><button class="toggle-btn" onclick="toggleAttendance(this)">Toggle</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function toggleAttendance(button) {
+      const row = button.parentElement.parentElement;
+      const statusCell = row.querySelector('.status');
+      if (statusCell.classList.contains('present')) {
+        statusCell.classList.remove('present');
+        statusCell.classList.add('absent');
+        statusCell.innerText = 'Absent';
+      } else {
+        statusCell.classList.remove('absent');
+        statusCell.classList.add('present');
+        statusCell.innerText = 'Present';
+      }
+    }
+  </script>
+
+</body>
+</html>
