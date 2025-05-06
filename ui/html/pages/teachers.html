@@ -1,14 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teachers Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    a.profile-link {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.profile-link:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <div>teachers  page</div>
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis hic impedit magnam odit veritatis? 
-        Excepturi quaerat explicabo iure voluptate illum quos provident aperiam, unde id fugiat omnis rerum praesentium numquam!</div>
-    
+
+  <h1>Teachers List</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Profile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dr. Ayesha Khan</td>
+        <td>Mathematics</td>
+        <td>ayesha.khan@example.com</td>
+        <td>9876543210</td>
+        <td><a class="profile-link" href="teacher-profile.html?id=1">View Profile</a></td>
+      </tr>
+      <tr>
+        <td>Mr. Rajeev Sharma</td>
+        <td>Physics</td>
+        <td>rajeev.sharma@example.com</td>
+        <td>9876543211</td>
+        <td><a class="profile-link" href="teacher-profile.html?id=2">View Profile</a></td>
+      </tr>
+      <tr>
+        <td>Ms. Anjali Mehta</td>
+        <td>Chemistry</td>
+        <td>anjali.mehta@example.com</td>
+        <td>9876543212</td>
+        <td><a class="profile-link" href="teacher-profile.html?id=3">View Profile</a></td>
+      </tr>
+    </tbody>
+  </table>
+
 </body>
 </html>
