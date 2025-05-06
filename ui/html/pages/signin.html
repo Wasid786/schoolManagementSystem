@@ -2,43 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signup</title>
+    <title>Signin</title>
 </head>
 <body>
     <h2>SignIn Form</h2>
     <form id="signinForm">
-
         <input type="email" name="email" placeholder="Email" required /><br>
         <input type="password" name="password" placeholder="Password" required /><br>
         <input type="text" name="role" placeholder="Role (optional, e.g., student/admin)" /><br>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Sign In</button>
 
         <p>Create an account? <a href="signup.html">Sign Up</a></p>
-
     </form>
 
-    <p id="response"></p>
+    <p id="response" style="color: red;"></p>
 
     <script>
         const form = document.getElementById('signinForm');
+        const responseEl = document.getElementById('response');
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const data = {
-                
                 email: form.email.value,
                 password: form.password.value,
                 role: form.role.value
             };
 
-            const res = await fetch('/signin', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
+            try {
+                const res = await fetch('http://localhost:4000/v1/signin', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
 
-            const text = await res.text();
-            document.getElementById('response').innerText = text;
+                const text = await res.text();
+
+                if (res.ok) {
+                    responseEl.style.color = 'green';
+                    responseEl.innerText = text;
+
+                    // Redirect to home.html after 1 second (optional delay)
+                    setTimeout(() => {
+                        window.location.href = 'home.html';
+                    }, 1000);
+                } else {
+                    responseEl.style.color = 'red';
+                    responseEl.innerText = text;
+                }
+            } catch (err) {
+                responseEl.style.color = 'red';
+                responseEl.innerText = 'Network error: ' + err.message;
+            }
         });
     </script>
 </body>
