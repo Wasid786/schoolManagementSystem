@@ -10,9 +10,12 @@ func (app *application) routes() http.Handler {
 	router := httprouter.New()
 
 	router.HandlerFunc(http.MethodGet, "/v1/", app.homeHandler)
-	router.HandlerFunc(http.MethodPost, "/v1/signup", app.signupHandler)
-	router.HandlerFunc(http.MethodPost, "/v1/signin", app.signinHandler)
 
+	router.HandlerFunc(http.MethodPost, "/v1/student", app.RegisterStudentHandler)
+
+	router.HandlerFunc(http.MethodPost, "/v1/tokens/authentication", app.createAuthenticationTokenHandler)
+	router.HandlerFunc(http.MethodPost, "/v1/tokens/password-reset", app.createPasswordResetTokenHandler)
+	router.HandlerFunc(http.MethodPut, "/v1/users/password", app.updatestudentPasswordHandler)
 	return enableCORS(router)
 }
 
